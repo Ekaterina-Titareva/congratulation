@@ -1,0 +1,357 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+button {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+button:focus,
+button:active {
+  outline: none;
+}
+
+@font-face {
+  font-family: "WixMadeforDisplay";
+  src: url("./fonts/WixMadeforDisplay-Bold.woff2");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Montserrat-Regular";
+  src: url("./fonts/Montserrat-Regular.woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Montserrat-Medium";
+  src: url("./fonts/Montserrat-Medium.woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--Text-White-1000-color);
+}
+
+main {
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  padding: 0 calc(50% - 636px);
+}
+
+:root {
+  --main-font-family: "Montserrat-Regular";
+
+  --Brand-Primary-1000-color: #0047ff;
+  --Brand-Primary-900-color: #0066ff;
+  --Brand-Primary-200-color: #ebf3ff;
+  --Brand-Secondary-1000-color: #efefef;
+  --Brand-Secondary-900-color: #f1f5f8;
+  --Brand-Secondary-800-color: #f5f5f5;
+
+  --Text-Black-1000-color: #000000;
+  --Text-Black-900-color: #0a0a0a;
+  --Text-White-1000-color: #ffffff;
+
+  --Hover-transition: all 0.4s ease-in-out;
+  --Brand-box-shadow: 14px 14px 50px -14px var(--Brand-Primary-1000-color);
+  --Black-box-shadow: 14px 14px 50px -14px var(--Text-Black-1000-color);
+}
+
+* {
+  font-family: var(--main-font-family), sans-serif;
+  font-size: clamp(10px, 2vw + 2px, 12px);
+  line-height: clamp(12px, 2vw + 3px, 14px);
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  font-family: "WixMadeforDisplay";
+  text-transform: uppercase;
+  color: var(--Text-Black-1000-color);
+  word-wrap: break-word;
+  width: 100%;
+}
+
+h1 {
+  font-size: clamp(40px, 8vw + 6px, 100px);
+  line-height: clamp(40px, 8vw + 9px, 110px);
+  text-align: center;
+  margin: 30px 0;
+  filter: drop-shadow(5px 3px 3px #0048ff82);
+  transition: var(--Hover-transition);
+}
+
+h1:hover {
+  color: var(--Brand-Primary-1000-color);
+  filter: drop-shadow(5px 3px 3px #00000082);
+}
+
+h4 {
+  font-size: clamp(20px, 4vw + 0.1px, 40px);
+  line-height: clamp(22.4px, 4vw + 3px, 44px);
+  text-align: center;
+}
+
+h6 {
+  font-size: clamp(14px, 2vw + 1px, 18px);
+  line-height: clamp(16px, 2vw + 2px, 20px);
+}
+
+p {
+  font-size: clamp(16px, 2vw + 4px, 24px);
+  line-height: clamp(19.6px, 2vw + 4px, 29px);
+}
+
+button {
+  padding: 16px 44px;
+  font-family: "Montserrat-Medium", monospace;
+  font-weight: 500;
+  font-size: clamp(14px, 2vw + 4px, 20px);
+  line-height: clamp(19.6px, 2vw + 4px, 24px);
+  border: 1px solid var(--Brand-Primary-900-color);
+  color: var(--Text-White-1000-color);
+  background-color: var(--Brand-Primary-900-color);
+  border-radius: 36px;
+  transition: var(--Hover-transition);
+}
+
+button:hover,
+button:active {
+  color: var(--Brand-Primary-900-color);
+  background-color: transparent;
+}
+
+@media (max-width: 1439px) {
+  section {
+    padding: 0 calc(50% - 472px);
+  }
+}
+
+@media (max-width: 1023px) {
+  section {
+    padding: 0 calc(50% - 354px);
+  }
+}
+
+@media (max-width: 767px) {
+  section {
+    padding: 0 calc(50% - 288px);
+  }
+}
+
+.logo {
+  margin: 2%;
+}
+
+.notes {
+  margin: 60px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.note {
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 16px;
+  border-radius: 20px;
+  color: var(--Text-Black-900-color);
+  background-color: var(--Brand-Secondary-800-color);
+  transition: var(--Hover-transition);
+}
+
+.name {
+  text-align: end;
+}
+
+.note:first-of-type {
+  grid-column: span 2;
+}
+
+.note:hover,
+.note:active {
+  transform: scale(1.03);
+  box-shadow: var(--Black-box-shadow);
+  background-color: var(--Brand-Primary-900-color);
+  color: var(--Text-White-1000-color);
+}
+
+.money {
+  position: absolute;
+  width: 192px;
+  height: 164px;
+  background-image: url("/public/dollar.png");
+  background-size: cover;
+  animation: fall linear infinite;
+  transform: translateY(-200px);
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-170px) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(80vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+.money:nth-child(1) {
+  animation-duration: 4s;
+  animation-delay: 0s;
+  left: 10%;
+}
+
+.money:nth-child(2) {
+  animation-duration: 5s;
+  animation-delay: 1s;
+  left: 30%;
+}
+
+.money:nth-child(3) {
+  animation-duration: 6s;
+  animation-delay: 2s;
+  left: 50%;
+}
+
+.money:nth-child(4) {
+  animation-duration: 7s;
+  animation-delay: 3s;
+  left: 70%;
+}
+
+.money:nth-child(5) {
+  animation-duration: 8s;
+  animation-delay: 4s;
+  left: 90%;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(24, 24, 24, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 90%;
+  color: var(--black);
+  position: relative;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.loading {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--Brand-Primary-200-color);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modal {
+  min-height: 30vh;
+  min-width: 50vw;
+  background-color: var(--Brand-Secondary-900-color);
+  padding: 64px;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 32px;
+}
+
+@media (max-width: 767px) {
+  .logo {
+    transform: scale(0.8);
+  }
+  h1 {
+    margin: -16px 0 16px;
+    margin-top: -16px;
+  }
+  .notes {
+    margin: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  .money {
+    width: 76.8px;
+    height: 65.6px;
+  }
+  .modal {
+    width: 80%;
+    padding: 24px;
+    gap: 20px;
+  }
+  .money:nth-child(1) {
+    left: 20%;
+  }
+
+  .money:nth-child(2) {
+    left: 30%;
+  }
+
+  .money:nth-child(3) {
+    left: 40%;
+  }
+
+  .money:nth-child(4) {
+    left: 50%;
+  }
+
+  .money:nth-child(5) {
+    left: 60%;
+  }
+}
