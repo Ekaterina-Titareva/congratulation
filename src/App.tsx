@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import "./index.css";
 import PopUp from "./PopUp/PopUp";
 
@@ -18,7 +18,9 @@ const congratulations = [
   {
     id: 2,
     name: "Никита Бабицын",
-    text: `Поздравляю!🎁`,
+    text: `Дорогой Богдан! Хочу пожелать тебе в этот особенный день оставаться таким же открытым и понимающим человеком, каким мы все тебя знаем и ценим. Спасибо за твою способность находить общий язык с людьми и поддерживать команду — это реально важно.
+Как начинающий фронтенд разработчик, ты уже достиг многого, и я уверен, что дальше - больше. Пусть все твои цели, включая финансовые и какие-нибудь ещё, сбываются, а каждый день приносит новые возможности и радость!`,
+    img: "/smile.webp",
   },
   {
     id: 3,
@@ -34,12 +36,31 @@ const congratulations = [
   },
   {
     id: 5,
-    name: "Павел Кузин",
-    text: `Поздравляю!🤝`,
+    name: "Пётр Кузин",
+    text: `Желаю, чтобы каждый год своей жизни рос и развивался в профессии, и всегда достигал поставленных целей 📈`,
   },
 ];
 const App: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  }, []);
+
+  const handleToggleAudio = () => {
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -81,7 +102,18 @@ const App: FC = () => {
         <section className="notes">
           {congratulations.map((item) => (
             <div className="note" key={item.id}>
-              <p className="text">{item.text}</p>
+              <div className="wish">
+                <p className="text">{item.text}</p>
+                {item?.img && (
+                  <img
+                    src={item.img}
+                    width={100}
+                    height={100}
+                    alt="smile"
+                    className="smile"
+                  />
+                )}
+              </div>
               <h6 className="name">{item.name}</h6>
             </div>
           ))}
@@ -91,11 +123,23 @@ const App: FC = () => {
           <PopUp isOpen={isModalOpen} onClose={handleCloseModal}>
             <div className="modal">
               <h4>С наилучшими пожеланиями, твоя команда</h4>
-              <img src="/revamp_it.png" />
+              <img src="/revamp_it.png" className="logo" />
             </div>
           </PopUp>
         )}
       </main>
+      <footer>
+        <audio ref={audioRef} src="/audio.mp3" />
+        {isPlaying ? (
+          <div className="audioIcon" onClick={handleToggleAudio}>
+            <img src="/pause.svg" />
+          </div>
+        ) : (
+          <div className="audioIcon" onClick={handleToggleAudio}>
+            <img src="/play.svg" />
+          </div>
+        )}
+      </footer>
     </>
   );
 };
