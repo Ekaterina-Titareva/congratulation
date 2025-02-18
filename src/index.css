@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Wix+Madefor+Display:wght@400..800&display=swap");
 * {
   padding: 0px;
   margin: 0px;
@@ -15,26 +16,6 @@ button {
 button:focus,
 button:active {
   outline: none;
-}
-
-@font-face {
-  font-family: "WixMadeforDisplay";
-  src: url("./fonts/WixMadeforDisplay-Bold.woff2");
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: "Montserrat-Regular";
-  src: url("./fonts/Montserrat-Regular.woff2");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Montserrat-Medium";
-  src: url("./fonts/Montserrat-Medium.woff2");
-  font-weight: 500;
-  font-style: normal;
 }
 
 body {
@@ -59,7 +40,7 @@ section {
 }
 
 :root {
-  --main-font-family: "Montserrat-Regular";
+  --main-font-family: "Montserrat", sans-serif;
 
   --Brand-Primary-1000-color: #0047ff;
   --Brand-Primary-900-color: #0066ff;
@@ -91,7 +72,7 @@ h4,
 h5,
 h6 {
   font-weight: 700;
-  font-family: "WixMadeforDisplay";
+  font-family: "WixMadeforDisplay", sans-serif;
   text-transform: uppercase;
   color: var(--Text-Black-1000-color);
   word-wrap: break-word;
@@ -326,7 +307,7 @@ button:active {
 .modal {
   min-height: 30vh;
   min-width: 50vw;
-  background-color: var(--Brand-Secondary-900-color);
+  background-color: var(--Brand-Secondary-800-color);
   padding: 64px;
   border-radius: 24px;
   display: flex;
